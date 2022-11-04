@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>{{ membername }}</title>
+</head>
+<body>
+<div>
+    <div>
+        <h1>{{ membername }}</h1>
+    <hr/>
+    <p style="margin: auto">&nbsp;&nbsp;{{ self_introduce }}</p>
+        <script>
+            alert("hello world")
+        </script>
+    </div>
+<div>
+
+    <ul>
+        <li><a href="{% url 'IO' %}">返回</a></li>
+    </ul>
+</div>
+</div>
+</body>
+</html>

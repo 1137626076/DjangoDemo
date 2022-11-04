@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>艾欧工作室</title>
+    {%  load static %}
+    <style type="text/css">
+        .body{
+            background-image: {% static 'images/bg.png' %};
+        }
+
+    </style>
+
+
+</head>
+<body class="body">
+
+
+<div>
+<h1>name</h1>
+    <p >活动时间是{{ current_data }}</p>
+<hr/>
+</div>
+
+    <div>
+        <div >
+            <h2 style="text-align: left">简介</h2>
+        <p style="font-family: SimSun;font-size:14px;line-height:2em;margin: auto">
+            &nbsp;&nbsp;艾欧工作室成立于2009年3月，是学院第一批成立专业工作室之一，隶属于信息网络中心。信息网络中心的老师们为了能够发挥自己的专业特长，特成立一个计算机专业学习和实践的工作室即艾欧工作室，一方面服务于广大电脑爱好者，让同学们能够在课堂之外增加实践动手能力；另一方面可以让自己学以致用，更好的发挥专业特长；并且工作室为全校师生提供永久免费的电脑维修服务。工作室培养适应社会需要，理论与实践相结合，具有良好实际动手能力，扎实掌握计算机硬件知识，可以独立处理各种计算机常见故障，能够独立组建计算机网络的IT精英。向社会培养网络技术人才，工作室每年组织参加全国计算机比赛，获得了众多国家级、市级奖项。这里汇集了一群有共同的爱好凝聚共同的热情的同学，给自己一个学习锻炼的机会，我们将给你一双放飞理想的翅膀！
+        </p>
+            </dic>
+
+        <div>
+            <h3>成员列表:</h3>
+            <ul type="disc">
+            <li><a href="{% url 'member' member_id=1 %}">member1</a></li>
+            <li><a href="{% url 'member' member_id=2 %}">member2</a></li>
+            <li><a href="{% url 'member' member_id=3 %}">member3</a></li>
+        </ul>
+        </div>
+
+        <div>
+            <h3>活动画面:</h3>
+            <img src="{% static 'images/test1.png' %}" alt="加载中" width="240" height="240">
+            <img src="{% static 'images/test2.png' %}" alt="加载中" width="240" height="240">
+            <img src="{% static 'images/test3.png' %}" alt="加载中" width="240" height="240">
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+</html>
