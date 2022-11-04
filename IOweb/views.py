@@ -9,6 +9,9 @@ from IOweb import models
 
 
 # Create your views here.
+file_path = os.path.abspath(os.path.join(os.getcwd()))
+activity_record = [fr'images\activity_record\{i}' for i in os.listdir(fr'{file_path}\static\images\activity_record')]
+member_images = [fr'images\member\{i}' for i in os.listdir(fr'{file_path}\static\images\member')]
 
 
 #静态页面
@@ -36,9 +39,12 @@ def hours_ahead(request, offset):
 
 def IO_web(request):
     t = get_template('IO_web.html')
-    now_time = '周五'
+    activie_time = '周五'
     html = t.render({
-        'current_data': now_time,
+        'current_data': activie_time,
+        'title':'艾欧工作室',
+        'member':models.user.objects.all(),
+        'activity_images':activity_record,
     })
     return HttpResponse(html)
 
@@ -49,16 +55,16 @@ def IO_members(request, member_id):
     except ValueError:
         raise Http404()
 
-    username = models.user.objects.get(id=member_id)
+    member = models.user.objects.get(id=member_id)
 
     t = get_template('IO_members.html')
-    file_path = os.path.abspath(os.path.join(os.getcwd()))
     text = pd.read_table(fr'{file_path}\static\text\member{member_id}_selfintroduce')
 
     html = t.render(
         {
-            'membername': username.username,
+            'membername': member.username,
             'self_introduce': text.columns[0],
+            'path':f'images/member/member{member_id}.png',
         }
     )
     return HttpResponse(html)
@@ -67,11 +73,14 @@ def IO_members(request, member_id):
 def test(request):
     member = models.user.objects.all()
     username = models.user.objects.get(id='1')
+    picturelist = [fr'images\activity_record\{i}' for i in os.listdir(fr'{file_path}\static\images\activity_record')]
     return render(
         request, 
         'test.html',
         {
             'member': member,
             'username':username.username,
+            'length':len(member),
+            'picturelist':picturelist,
         }
     )

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>test</title>
 </head>
@@ -8,6 +9,7 @@
 
 <div>
     {% for i in member %}
+        {{ length }}
     <ul>
         <li>{{ i.id }}</li>
         <li>{{ i.username }}</li>
@@ -19,6 +21,12 @@
 <span>
     <h1>{{ username }}</h1>
 </span>
+
+<div>
+    {% for i in picturelist %}
+    <img src="{% static i %}" alt="加载中" width="240" height="240">
+    {% endfor %}
+</div>
 </div>
 
 
