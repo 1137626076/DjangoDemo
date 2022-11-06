@@ -39,7 +39,7 @@ def hours_ahead(request, offset):
 
 def IO_web(request):
     t = get_template('IO_web.html')
-    activie_time = '周五'
+    activie_time = '每周五 18:00 - 20:30'
     html = t.render({
         'current_data': activie_time,
         'title':'艾欧工作室',
