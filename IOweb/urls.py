@@ -8,5 +8,6 @@ from IOweb import views
 urlpatterns = [
     path('member/<member_id>/', views.IO_members, name='member'),
     path('test/', views.test, name='test'),
+    path('love/', views.love, name='love'),
 
 ]

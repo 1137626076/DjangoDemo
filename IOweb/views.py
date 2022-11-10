@@ -36,6 +36,12 @@ def hours_ahead(request, offset):
     dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
     return HttpResponse(f'In {offset} hour, it will be {dt}')
 
+def love(request):
+    return render(
+        request,
+        'love.html'
+    )
+
 
 def IO_web(request):
     t = get_template('IO_web.html')
